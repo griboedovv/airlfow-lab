@@ -20,16 +20,16 @@
 Скрипт в реальном времени считывает сообщения из Kafka (p. 2).
 Валидация: Проверка уровня топлива и состояния автомобиля.
 Обработка: Расчет стоимости поездки на основе выбранного тарифа (время или дистанция).
-4. Оркестрация (dags/carsharing_dag.py)
+### 4. Оркестрация (dags/carsharing_dag.py)
 Реализован DAG в Apache Airflow, который по расписанию запускает цепочку задач: генерацию, отправку и обработку данных (p. 2).
-Стек технологий
-Инфраструктура: WSL2 (Ubuntu), Apache Kafka 4.2.0 (KRaft mode).
-Язык разработки: Python 3.10+.
-Библиотеки: kafka-python, json, random.
-Оркестрация: Apache Airflow 2.10.x (p. 2).
-Инструкция по запуску
-1. Запуск Kafka (KRaft)
-bash
+
+## Стек технологий
+* Инфраструктура: WSL2 (Ubuntu), Apache Kafka 4.2.0 (KRaft mode).
+* Язык разработки: Python 3.10+.
+* Библиотеки: kafka-python, json, random.
+* Оркестрация: Apache Airflow 2.10.x (p. 2).
+## Инструкция по запуску
+### 1. Запуск Kafka (KRaft)
 # Форматирование хранилища (выполняется один раз)
 bin/kafka-storage.sh format --standalone -t $UUID -c config/kraft/server.properties
 # Запуск сервера
