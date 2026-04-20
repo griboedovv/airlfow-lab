@@ -2,7 +2,7 @@ from kafka import KafkaConsumer
 import json
 
 consumer = KafkaConsumer(
-    "tutoring_platform",
+    "carsharing",
     bootstrap_servers="localhost:9092",
     value_deserializer=lambda x: x.decode("utf-8")
 )
@@ -10,10 +10,13 @@ consumer = KafkaConsumer(
 def validate(message):
     data = json.loads(message)
 
-    if data["price"] <= 0:
+    if data["fare"] <= 0:
         return False
 
-    if data["rating"] > 5:
+    if data["distance_km"] < 0:
+        return False
+
+    if data["duration_min"] <= 0:
         return False
 
     return True

@@ -7,7 +7,7 @@ producer = KafkaProducer(
     value_serializer=lambda v: v.encode("utf-8")
 )
 
-topic = "tutoring_platform"
+topic = "carsharing"
 
 while True:
     message = generate_message()
